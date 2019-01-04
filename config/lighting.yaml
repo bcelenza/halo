@@ -1,0 +1,96 @@
+lights:
+  - name: Kitchen Main
+    type: dimmer
+    protocol: insteon
+    insteon_options:
+      addresses:
+        - 29.c3.d8
+        - 30.b2.ef
+    dimmer_options:
+      min_brightness_percent: 10
+      max_brightness_percent: 100
+  - name: Kitchen Secondary
+    type: dimmer
+    protocol: insteon
+    insteon_options:
+      addresses:
+        - 29.cd.66
+    dimmer_options:
+      min_brightness_percent: 10
+      max_brightness_percent: 100
+  - name: Kitchen Island
+    type: dimmer
+    protocol: insteon
+    insteon_options:
+      addresses:
+        - 2b.69.7e
+    dimmer_options:
+      min_brightness_percent: 10
+      max_brightness_percent: 100
+  - name: Kitchen Counter
+    type: dimmer
+    protocol: insteon
+    insteon_options:
+      addresses:
+        - 29.b9.40
+    dimmer_options:
+      min_brightness_percent: 10
+      max_brightness_percent: 100
+  - name: Dining Room Main
+    type: dimmer
+    protocol: insteon
+    insteon_options:
+      addresses:
+        - 29.d8.8f
+        - 2b.6d.92
+    dimmer_options:
+      min_brightness_percent: 10
+      max_brightness_percent: 100
+  - name: Dining Room Wall
+    type: dimmer
+    protocol: insteon
+    insteon_options:
+      addresses:
+        - 29.c9.4f
+        - 29.ac.6e
+    dimmer_options:
+      min_brightness_percent: 10
+      max_brightness_percent: 100
+  - name: Living Room Wall
+    type: dimmer
+    protocol: insteon
+    insteon_options:
+      addresses:
+        - 2b.65.b6
+    dimmer_options:
+      min_brightness_percent: 10
+      max_brightness_percent: 100
+  - name: Living Room Fireplace
+    type: dimmer
+    protocol: insteon
+    insteon_options:
+      addresses:
+        - 30.b4.ab
+    dimmer_options:
+      min_brightness_percent: 10
+      max_brightness_percent: 100
+  - name: Entry Secondary
+    type: dimmer
+    protocol: insteon
+    insteon_options:
+      addresses:
+        - 2b.69.f8
+        - 2b.6c.94
+    dimmer_options:
+      min_brightness_percent: 10
+      max_brightness_percent: 100
+  - name: Upper Deck Spot
+    type: standard
+    protocol: insteon
+    insteon_options:
+      addresses:
+        - 2a.56.33
+    dimmer_options:
+      min_brightness_percent: 10
+      max_brightness_percent: 100
+
