@@ -42,6 +42,7 @@ func (lc *LightControl) Start(interval time.Duration, doneChan chan bool) {
 			}
 
 			lc.setBrightness(light, outdoorScene)
+			time.Sleep(2 * time.Second)
 		}
 
 		time.Sleep(interval)
@@ -55,7 +56,7 @@ func (*LightControl) setBrightness(light Light, scene *OutdoorScene) {
 		return
 	}
 
-	log.Printf("Setting desired brightness for light '%s' to %f\n", light.Name, desiredBrightnessPercent*100)
+	log.Printf("Setting desired brightness for light '%s' to %d%%\n", light.Name, int(desiredBrightnessPercent*100))
 	for _, address := range light.InsteonOptions.Addresses {
 		addr := insteon.Address{}
 		err := addr.UnmarshalText([]byte(address))
