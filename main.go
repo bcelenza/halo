@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"github.com/abates/insteon"
 	"github.com/abates/insteon/plm"
 	"github.com/tarm/serial"
@@ -17,6 +18,12 @@ var modem *plm.PLM
 func main() {
 	insteon.Log.Level(insteon.LevelTrace)
 	log.Println("Hello")
+
+	port := flag.String("port", "", "the path to the PLM")
+	flag.Parse()
+	if *port == "" {
+		log.Fatalln("Port flag is required")
+	}
 
 	// parse home file
 	home := &Location{}
@@ -44,7 +51,7 @@ func main() {
 
 	// open modem
 	c := &serial.Config{
-		Name: "/dev/tty.usbserial-A906XKUI",
+		Name: *port,
 		Baud: 19200,
 	}
 	s, err := serial.OpenPort(c)
