@@ -52,8 +52,8 @@ func (location *Location) GetOutdoorScene(desiredTime time.Time) (*OutdoorScene,
 
 	// A few coefficients to tune the window in which the lighting defaults change
 	outdoorScene.MeridianHour = (sunrise.Hour() + sunset.Hour()) / 2
-	outdoorScene.LightWindow = float64(sunset.Hour() - sunrise.Hour()) / lightWindowCoefficient
-	outdoorScene.AfterMeridian = desiredTime.Hour() - outdoorScene.MeridianHour > 0
+	outdoorScene.LightWindow = float64(sunset.Hour()-sunrise.Hour()) / lightWindowCoefficient
+	outdoorScene.AfterMeridian = desiredTime.Hour()-outdoorScene.MeridianHour > 0
 	outdoorScene.DistanceFromMeridian = math.Abs(float64(desiredTime.Hour() - outdoorScene.MeridianHour))
 
 	// Determine the length of the light window

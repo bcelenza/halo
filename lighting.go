@@ -5,6 +5,7 @@ import (
 )
 
 type Protocol int
+
 const (
 	Insteon Protocol = iota
 )
@@ -16,10 +17,12 @@ func (protocol Protocol) String() string {
 }
 
 type LightType int
+
 const (
 	Standard LightType = iota
 	Dimmer
 )
+
 func (lightType LightType) String() string {
 	return [...]string{
 		"standard",
@@ -38,11 +41,11 @@ type DimmerOptions struct {
 }
 
 type Light struct {
-	Name string
-	Type string
-	Protocol string
+	Name           string
+	Type           string
+	Protocol       string
 	InsteonOptions InsteonOptions `yaml:"insteon_options"`
-	DimmerOptions DimmerOptions `yaml:"dimmer_options"`
+	DimmerOptions  DimmerOptions  `yaml:"dimmer_options"`
 }
 
 type Lighting struct {
@@ -55,9 +58,9 @@ func (light *Light) DesiredBrightnessPercent(outdoorScene *OutdoorScene) (float6
 	}
 
 	// Determine the desired brightness between its min and max values
-	desiredBrightness := (outdoorScene.BrightnessCoefficient - 0) *
-		(light.DimmerOptions.MaxBrightnessPercent - light.DimmerOptions.MinBrightnessPercent) /
-		(outdoorScene.LightWindow - 0) +
+	desiredBrightness := (outdoorScene.BrightnessCoefficient-0)*
+		(light.DimmerOptions.MaxBrightnessPercent-light.DimmerOptions.MinBrightnessPercent)/
+		(outdoorScene.LightWindow-0) +
 		light.DimmerOptions.MinBrightnessPercent
 
 	return desiredBrightness / 100, nil
